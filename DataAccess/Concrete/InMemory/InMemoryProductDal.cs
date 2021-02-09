@@ -1,55 +1,43 @@
 ﻿using DataAccess.Abstract;
 using Entites.Concrete;
+using Entites.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryProductDal : IProductDal
     {
-        List<Product> _products;
-        public InMemoryProductDal()
+        public void Add(Product entity)
         {
-            _products = new List<Product>
-            {
-                new Product { ProductId=1, CategoryId=1, ProductName="bardak", UnitInStock=15, UnitPrice=15 },
-                new Product { ProductId=2, CategoryId=2, ProductName="kamera", UnitInStock=3, UnitPrice=500 },
-                new Product { ProductId=3, CategoryId=2, ProductName="Telefon", UnitInStock=2, UnitPrice=1500 },
-                new Product { ProductId=4, CategoryId=2, ProductName="klavye", UnitInStock=65, UnitPrice=150 },
-                new Product { ProductId=5, CategoryId=2, ProductName="fare",   UnitInStock=1, UnitPrice=85 }
-            };
-        }
-        public void Add(Product product)
-        {
-            _products.Add(product);
-
+            throw new NotImplementedException();
         }
 
-        public void Delete(Product product)
+        public void Delete(Product entity)
         {
-            Product productToDelete = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
-
-            _products.Remove(productToDelete);
+            throw new NotImplementedException();
         }
 
-        public List<Product> GetAll()
+        public Product Get(Expression<Func<Product, bool>> filter)
         {
-            return _products;
+            throw new NotImplementedException();
         }
 
-        public List<Product> GetAllByCaegory(int categoryId)
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            return _products.Where(p => p.CategoryId == categoryId).ToList();
+            throw new NotImplementedException();
         }
 
-        public void Update(Product product)
+        public List<ProductDetailDto> GetProductDetails()
         {
-            Product productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
-            productToUpdate.CategoryId = product.CategoryId;
-            productToUpdate.ProductId = product.ProductId;
-            productToUpdate.ProductName = product.ProductName;
-            productToUpdate.UnitInStock = product.UnitInStock;
-            productToUpdate.UnitPrice = product.UnitPrice;
+            throw new NotImplementedException();
+        }
+
+        public void Update(Product entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
