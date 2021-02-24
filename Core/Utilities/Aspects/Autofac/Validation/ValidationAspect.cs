@@ -4,7 +4,6 @@ using Core.Utilities.Interceptors;
 using FluentValidation;
 using System;
 using System.Linq;
-using System.Text;
 
 namespace Core.Utilities.Aspects.Autofac.Validation
 {
@@ -15,7 +14,8 @@ namespace Core.Utilities.Aspects.Autofac.Validation
         {
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
-                throw new Exception("Bu bir doğrulama sınıfı değil");}
+                throw new Exception("Bu bir doğrulama sınıfı değil");
+            }
 
             _validatorType = validatorType;
         }

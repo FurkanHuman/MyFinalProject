@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.Utilities.Results
+﻿namespace Core.Utilities.Results
 {
     public class Result : IResult
     {
@@ -10,9 +6,9 @@ namespace Core.Utilities.Results
         {
             Success = success;
         }
-        public Result(bool success, string message):this(success)
+        public Result(bool success, string message) : this(success)
         {
-            Message = message;            
+            Message = message;
         }
 
         public bool Success { get; }

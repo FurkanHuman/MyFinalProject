@@ -1,13 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
-using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entites.Concrete;
 using Entites.DTOs;
-using FluentValidation;
 using System;
 using System.Collections.Generic;
 

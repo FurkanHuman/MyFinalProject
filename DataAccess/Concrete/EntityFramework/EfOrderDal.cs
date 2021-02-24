@@ -1,13 +1,10 @@
 ﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entites.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfOrderDal :EfEntityRepositoryBase<Order,NorthwindContext>,IOrderDal
+    public class EfOrderDal : EfEntityRepositoryBase<Order, NorthwindContext>, IOrderDal
     {
 
     }

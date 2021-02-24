@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 using System.Linq.Expressions;
-using Core.Entities;
 
 namespace Core.DataAccess
 {
@@ -13,6 +11,6 @@ namespace Core.DataAccess
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Update(T entity);
-        void Delete(T entity);    
+        void Delete(T entity);
     }
 }
