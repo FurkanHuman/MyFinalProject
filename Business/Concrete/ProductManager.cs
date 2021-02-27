@@ -15,9 +15,9 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        const sbyte hours = 1;
+        const sbyte hours = 5;
         readonly IProductDal _productDal;
-        ICategoryService _categoryService;
+        readonly ICategoryService _categoryService;
         public ProductManager(IProductDal productDal, ICategoryService categoryService)
         {
             _productDal = productDal;
@@ -25,6 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ProductValidator))]
+
         public IResult Add(Product product)
         {
             BusinessRules.Run(CheckİfProductCountOfCategoryId(product.CategoryId),

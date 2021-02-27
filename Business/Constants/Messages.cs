@@ -1,4 +1,6 @@
-﻿namespace Business.Constants
+﻿using System.Runtime.Serialization;
+
+namespace Business.Constants
 {
     public static class Messages
     {
@@ -8,5 +10,6 @@
         public static string ProductsListed = "Ürünler listelendi";
         public static string ProductOfCountCategoryError="Katago limit hatası ";
         public static string CategoryLimitExp="katagory limitine ulaşıldı";
+        public static string AuthorizationDenied = "Erişim Engellendi";
     }
 }
