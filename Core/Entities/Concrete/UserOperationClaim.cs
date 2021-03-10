@@ -1,6 +1,8 @@
-﻿namespace Core.Entities.Concrete
+﻿using Core.Entities.Abstract;
+
+namespace Core.Entities.Concrete
 {
-    public class UserOperationClaim:IEntity
+    public class UserOperationClaim : IEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }

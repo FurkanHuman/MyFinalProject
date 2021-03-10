@@ -4,12 +4,12 @@ using Core.Extensions;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
-using System;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Business.BusinessAspect.Autofac
 {
-    public class SecuredOperation:MethodInterception
+    public class SecuredOperation : MethodInterception
     {
         private readonly string[] _roles;
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -34,4 +34,4 @@ namespace Business.BusinessAspect.Autofac
             throw new Exception(Messages.AuthorizationDenied);
         }
     }
- }
+}

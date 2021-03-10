@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -25,15 +27,17 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ProductValidator))]
-
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             BusinessRules.Run(CheckİfProductCountOfCategoryId(product.CategoryId),
-                NoEquelName(product.ProductName),CheckİfCategoryLimitExd());
+                NoEquelName(product.ProductName), CheckİfCategoryLimitExd());
             _productDal.Add(product);
             return new Result(true, Messages.ProductAdded);
         }
 
+        [CacheAspect]
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour == hours)
@@ -46,6 +50,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == Id));
         }
 
+        [CacheAspect]
         public IDataResult<Product> GetById(int productId)
         {
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
@@ -64,6 +69,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ProductValidator))]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Update(Product product)
         {
             _productDal.Update(product);
@@ -101,5 +107,9 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IResult AddTransactioonalTest(Product product)
+        {
+            return new ErrorResult();            
+        }
     }
 }

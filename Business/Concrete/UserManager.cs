@@ -1,9 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Business.Concrete
 {
@@ -28,6 +26,8 @@ namespace Business.Concrete
 
         public User GetByMail(string email)
         {
+
+
             return _userDal.Get(u => u.Email == email);
         }
     }

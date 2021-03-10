@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace Core.Utilities.Security.Hashing
 {
-   public class HashingHelper
+    public class HashingHelper
     {
         public static void CreatePasswordHash(string pass, out byte[] passHash, out byte[] passSalt)
         {
@@ -27,7 +25,7 @@ namespace Core.Utilities.Security.Hashing
                     }
                 }
                 return true;
-            }            
+            }
         }
     }
 }
