@@ -109,7 +109,7 @@ namespace Business.Concrete
 
         public IResult AddTransactioonalTest(Product product)
         {
-            return new ErrorResult();            
+            return new ErrorResult();
         }
     }
 }

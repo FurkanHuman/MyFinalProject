@@ -1,14 +1,11 @@
 ﻿using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
-using System;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
 namespace Core.Aspects.Autofac.Performance
-{    
+{
     public class PerformanceAspect : MethodInterception
     {
         private int _interval;
